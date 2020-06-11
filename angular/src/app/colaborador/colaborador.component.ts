@@ -38,13 +38,20 @@ export class ColaboradorComponent implements OnInit {
     this.router.navigate(['/colaborador/inserir']);	
   }
 
-  removerColaborador(idcolaborador){
+  cadastrarCargo(){
+    this.router.navigate(['/cargo/inserir']);	
+  }
 
-    this.ApiService.removerColaborador(idcolaborador)
+  removerColaborador(idcolaborador){
+   if (confirm("Confirma Excluir Colaborador ?")){
+      this.ApiService.removerColaborador(idcolaborador)
     .subscribe((data:any)=>{
-    
+     
       console.warn(data);
-    })   
+    })
+    this.router.navigate(['/colaborador']);	
+    }
+     
 
   }
 

@@ -1,1 +1,17 @@
-<p>cargo works!</p>
+
+<div class="container" style="width: 100%;">
+    <div class="card-header">
+          Cadastro de Cargo
+    </div>
+    <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)">
+      <div class="form-group">
+        <label for="descricao"></label>
+        <input type="text" class="form-control" id="descricao" name="descricao" ngModel placeholder="Descricao do cargo...">   
+      </div>
+    
+      <button type="submit" class="btn btn-outline-success"  value="salvar" id="salvar">salvar</button>
+      <button type="button" class="btn btn-outline-warning"  onclick="window.history.go(-1); return false;"  type="submit" value="voltar">Voltar</button>
+    </form>
+  </div>
+  
+  

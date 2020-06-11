@@ -9,7 +9,7 @@ const APP_ROUTES: Routes = [
     {path:'colaborador',component:ColaboradorComponent},
     {path:'colaborador/inserir',component:FormCadastrarColaboradorComponent},
     {path:'colaborador/editar',component:FormEditarColaboradorComponent},
-    {path:'cargo',component:CargoComponent},
+    {path:'cargo/inserir',component:CargoComponent},
 
 ];
 
