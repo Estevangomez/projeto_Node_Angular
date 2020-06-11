@@ -1,0 +1,19 @@
+import * as tslib_1 from "tslib";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AssociarProdutoALinhaComponent } from './associar-produto-a-linha.component';
+var AssociarProdutoALinhaModule = /** @class */ (function () {
+    function AssociarProdutoALinhaModule() {
+    }
+    AssociarProdutoALinhaModule = tslib_1.__decorate([
+        NgModule({
+            declarations: [AssociarProdutoALinhaComponent],
+            imports: [
+                CommonModule
+            ]
+        })
+    ], AssociarProdutoALinhaModule);
+    return AssociarProdutoALinhaModule;
+}());
+export { AssociarProdutoALinhaModule };
+//# sourceMappingURL=associar-produto-a-linha.module.js.map

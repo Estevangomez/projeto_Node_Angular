@@ -1,0 +1,36 @@
+
+	<div class="container-full">			
+			<div class="card bg-light">
+				<div class="card-header"><br>
+
+					<div class="col-md-12">
+						<h2 style="font-size:20px; color:#0081c1;">
+						  <small><strong> <font color="#434343"> Produto: &nbsp;</font> </strong></small> {{ produto[0]?.nm_desc_produto}}<br>
+						   <small><strong> <font color="#434343"> Qtd: &nbsp;</font> </strong></small>  {{ qtd }} <br>
+						   <small><strong> <font color="#434343"> Linha: &nbsp;</font> </strong></small>  {{ linha[0]?.linha}} <br>
+						   <small><strong> <font color="#434343"> Atividade: &nbsp;</font> </strong></small>  {{ atividade[0]?.atividade}} <br>
+						 </h2>
+				   </div>
+
+					<h2 style="font-size:22px; color:#434343; text-align:center;">  Selecione posto de trabalho </h2>
+					
+				</div>
+				<br><br>
+			    <div class="row text-center" style="width:100%; height:100%;">
+						<div class="col-sm-6 col-lg-2 py-2" value ="pos.codPostoTrabalho" *ngFor="let pos of postos;" data-codPT="pos.codPostoTrabalho" data-preenchido="pos.preenchido" (click)="associarAoPosto(pos.codPostoTrabalho,content)">
+								<div class="card h-100">                              
+									<div class="card-body">
+											 <img [src]="pos.foto" class="mx-auto d-block" style="height: 85px; width: 75px;" ><br/><br>
+												 <p class="card-text text-white"> {{pos.nome}}</p>  
+												 <p class="card-text text-white"> {{pos.observacao}}</p>  		
+												 <h5 class="card-title text-white">{{ pos.nome_posto }}</h5>												
+																				                     
+									</div>
+								</div>
+							</div>         
+			  </div>
+			  <br><br>
+			</div> 
+	  </div>  
+	  
+		  

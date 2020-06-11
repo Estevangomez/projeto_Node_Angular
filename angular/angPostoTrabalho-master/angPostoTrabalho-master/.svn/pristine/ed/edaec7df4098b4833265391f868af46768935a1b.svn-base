@@ -1,0 +1,21 @@
+import { async, TestBed } from '@angular/core/testing';
+import { ProdutoBibliotecaComponent } from './produto-biblioteca.component';
+describe('ProdutoBibliotecaComponent', function () {
+    var component;
+    var fixture;
+    beforeEach(async(function () {
+        TestBed.configureTestingModule({
+            declarations: [ProdutoBibliotecaComponent]
+        })
+            .compileComponents();
+    }));
+    beforeEach(function () {
+        fixture = TestBed.createComponent(ProdutoBibliotecaComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+    it('should create', function () {
+        expect(component).toBeTruthy();
+    });
+});
+//# sourceMappingURL=produto-biblioteca.component.spec.js.map

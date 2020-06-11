@@ -1,0 +1,65 @@
+
+	<div class="container-full">		
+        <div class="card bg-light">
+            <div class="card-header">
+                <br>
+                    <div class="col-md-12">
+                             <h2 style="font-size:20px; color:#0081c1;">
+                               <small><strong> <font color="#434343"> Produto: &nbsp;</font> </strong></small> {{ prod }}<br>
+                                <small><strong> <font color="#434343"> Qtd: &nbsp;</font> </strong></small>  {{qtd}} <br>
+                                <small><strong> <font color="#434343"> Linha: &nbsp;</font> </strong></small>  {{ linha[0]?.linha}} <br>
+                                <small><strong> <font color="#434343"> Data: &nbsp;</font> </strong></small>  {{currentDate | date:'dd/MM/yyyy'}}</h2>
+                        </div>
+
+                        <div class="" style="float:right; margin-top:-50px" >
+               
+                            <form action="" id="form-desassociar-linha" style ='float: left; padding: 5px;'>
+                                <button type="button" class="btn btn-large btn-warning bt-sair">
+                                    <i class="fa fa-cog fa-xs"></i> Desassociar 
+                                </button>
+                            </form>  
+                         
+                    </div>
+
+                        <div class="col-md-12">
+                                <h2 style="font-size:30px; color:#434343; text-align:center;">  Selecione sua atividade </h2>
+                                
+                            </div>
+                 <div class="" style="float:right; margin-top:-50px" >           
+                                   
+                  	
+                </div>
+            </div>       
+         
+          <div class="row" *ngIf="!existeAtividades">                
+            <div class="col-sm-12 col-lg-3 py-2" *ngFor="let ativ of atividades;" value='ativ.codigo' name="produto" (click)="getAtividade($event,ativ.codigo)">
+                    <div class="card h-100">                              
+                      <div class="card-body">
+
+                              <h4 class="card-title"  style="color:#ffffff;  text-align: center;">{{ativ.atividade}}</h4>                            
+                              <p style="color:#ffffff; text-align: center;"><span class='azul'> Livre: </span> <strong> {{ ativ.vazio }}</strong> <br/><span class='vermelho'>Ocupado:</span> <strong> {{ ativ.preenchido }} </strong></p>                
+                        </div>
+                    </div>
+              </div>      
+
+       </div>
+
+       <div class="row" *ngIf="!naoExisteAtividades">
+        <div class="col-sm-12">                                                     
+            <div class="alert alert-info text-center col-sm-12" role="alert">
+                  <h4> NÃO EXISTE POSTO ASSOCIADO A NENHUMA ATIVIDADE PARA ESTA CONFIGURAÇÃO</h4>
+            </div>                             
+        </div>      
+
+ </div>	
+
+                
+
+     </div> <!-- fecha a row -->
+
+                        
+            
+
+  </div> 
+
+

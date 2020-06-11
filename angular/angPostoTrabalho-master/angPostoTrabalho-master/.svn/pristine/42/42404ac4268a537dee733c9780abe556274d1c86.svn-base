@@ -1,0 +1,59 @@
+import * as tslib_1 from "tslib";
+import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
+import { EventEmitter } from '@angular/core';
+import { error } from 'util';
+var LoginService = /** @class */ (function () {
+    function LoginService(http, router, apiService) {
+        this.http = http;
+        this.router = router;
+        this.apiService = apiService;
+        this.webservice = "http://localhost:3000/api/v1/";
+        this.usuarioAutenticado = false;
+        this.mostrarMenusEmitter = new EventEmitter();
+        this.notifier = new EventEmitter();
+        this.notifierMenu = new EventEmitter();
+    }
+    LoginService.prototype.logar = function (usuario) {
+        var _this = this;
+        this.http.post(this.webservice + "users-cadastrados/", usuario, {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json'
+            })
+        }).subscribe(function (data) {
+            console.log('retorno', data);
+            usuario = data.result;
+            if (usuario[0].nome != undefined) {
+                _this.usuarioAutenticado = true;
+                //this.mostrarMenusEmitter.emit(true);
+                sessionStorage.setItem('empresa', usuario[0].empresa);
+                sessionStorage.setItem('digital', usuario[0].digital);
+                sessionStorage.setItem('codfun', usuario[0].codfun);
+                sessionStorage.setItem('id', usuario[0].id);
+                sessionStorage.setItem('nome', usuario[0].nome);
+                sessionStorage.setItem('setor', usuario[0].setor);
+                sessionStorage.setItem('status', usuario[0].status);
+                sessionStorage.setItem('drt', usuario[0].drt);
+                _this.router.navigate(['/produto']);
+                console.log(usuario[0].nome);
+                console.log(usuario[0].setor);
+            }
+            else {
+                _this.usuarioAutenticado = false;
+                alert("Usuario não Identificado");
+                return error;
+            }
+        });
+    };
+    LoginService.prototype.verificarSessao = function () {
+        return window.sessionStorage.getItem('digital') != null;
+    };
+    LoginService = tslib_1.__decorate([
+        Injectable({
+            providedIn: 'root'
+        })
+    ], LoginService);
+    return LoginService;
+}());
+export { LoginService };
+//# sourceMappingURL=login.service.js.map

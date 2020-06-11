@@ -1,0 +1,24 @@
+import * as tslib_1 from "tslib";
+import { Component } from '@angular/core';
+var TipoPostoTrabalhoComponent = /** @class */ (function () {
+    function TipoPostoTrabalhoComponent(apiService) {
+        this.apiService = apiService;
+    }
+    TipoPostoTrabalhoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.apiService.getTipoPosto()
+            .subscribe(function (data) {
+            _this.tipoPosto = data.result;
+        });
+    };
+    TipoPostoTrabalhoComponent = tslib_1.__decorate([
+        Component({
+            selector: 'app-tipo-posto-trabalho',
+            templateUrl: './tipo-posto-trabalho.component.html',
+            styleUrls: ['./tipo-posto-trabalho.component.css']
+        })
+    ], TipoPostoTrabalhoComponent);
+    return TipoPostoTrabalhoComponent;
+}());
+export { TipoPostoTrabalhoComponent };
+//# sourceMappingURL=tipo-posto-trabalho.component.js.map

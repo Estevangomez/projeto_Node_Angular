@@ -1,0 +1,26 @@
+import * as tslib_1 from "tslib";
+import { Component } from '@angular/core';
+var ProdutoComponent = /** @class */ (function () {
+    function ProdutoComponent(ApiService, endPoint) {
+        this.ApiService = ApiService;
+        this.endPoint = endPoint;
+        this.srcImagem = '/assets/imagens/logo-posto-trabalho-menor.png';
+    }
+    ProdutoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.ApiService.getProduto()
+            .subscribe(function (data) {
+            _this.produto = data.result;
+        });
+    };
+    ProdutoComponent = tslib_1.__decorate([
+        Component({
+            selector: 'app-produto',
+            templateUrl: './produto.component.html',
+            styleUrls: ['./produto.component.css']
+        })
+    ], ProdutoComponent);
+    return ProdutoComponent;
+}());
+export { ProdutoComponent };
+//# sourceMappingURL=produto.component.js.map

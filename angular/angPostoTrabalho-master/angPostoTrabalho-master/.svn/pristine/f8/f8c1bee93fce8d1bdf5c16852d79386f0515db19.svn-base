@@ -1,0 +1,18 @@
+import * as tslib_1 from "tslib";
+import { Component } from '@angular/core';
+var PostoSituacaoFuncComponent = /** @class */ (function () {
+    function PostoSituacaoFuncComponent() {
+    }
+    PostoSituacaoFuncComponent.prototype.ngOnInit = function () {
+    };
+    PostoSituacaoFuncComponent = tslib_1.__decorate([
+        Component({
+            selector: 'app-posto-situacao-func',
+            templateUrl: './posto-situacao-func.component.html',
+            styleUrls: ['./posto-situacao-func.component.css']
+        })
+    ], PostoSituacaoFuncComponent);
+    return PostoSituacaoFuncComponent;
+}());
+export { PostoSituacaoFuncComponent };
+//# sourceMappingURL=posto-situacao-func.component.js.map

@@ -1,0 +1,13 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { TipoPostoTrabalhoComponent } from './tipo-posto-trabalho.component';
+
+
+
+@NgModule({
+  declarations: [TipoPostoTrabalhoComponent],
+  imports: [
+    CommonModule
+  ]
+})
+export class TipoPostoTrabalhoModule { }

@@ -1,0 +1,67 @@
+
+	<div class="container-full">		
+        <div class="card bg-light">
+            <div class="card-header">
+                <br>
+                    <div class="col-md-12">
+                            <h2 style="font-size:20px; color:#0081c1;">
+                                <small><strong> <font color="#434343"> Produto: </font> </strong></small> 1025460002 - PCI MB L340+I7 5B20V82581<br>
+                                <small><strong> <font color="#434343"> Qtd: </font> </strong></small> 700 <br>
+                                <small><strong> <font color="#434343"> Linha: </font> </strong></small> IMC2-LM10<br>
+                                <small><strong> <font color="#434343"> Data: </font> </strong></small> 05/11/2019	</h2>
+                        </div>
+
+                        <div class="col-md-12">
+                                <h2 style="font-size:30px; color:#434343; text-align:center;">  Selecione sua atividade </h2>
+                                
+                            </div>
+                 <div class="" style="float:right; margin-top:-50px" >
+               
+                        <form action="" id="form-desassociar-linha" style ='float: left; padding: 5px;'>
+                            <button type="button" class="btn btn-large btn-warning bt-sair">
+                                <i class="fa fa-cog fa-xs"></i> Desassociar Posto
+                            </button>
+                        </form>                
+                        <form action="" id="form-menu-config-produto" style ='float: left; padding: 5px;'>
+                   
+                    </form>	
+                </div>
+            </div>
+            <div class="row">
+
+                    <div class="col-sm-6 col-lg-3 py-2" *ngFor="let ativ of atividades;">
+                            <div class="card h-100">                              
+                                <div class="card-body">
+                                        <a [routerLink]="['/posto-trabalho-tipo']">  <h4 class="card-title"  style="color:#ffffff;">{{ativ.atividade}}</h4>
+                                            <p style="color:#ffffff;"><span class='azul'> Livre: </span> <strong>1</strong> <br/><span class='vermelho'>Ocupado:</span> <strong>0</strong></p></a>
+                                  
+                                </div>
+                            </div>
+                        </div>       
+                
+
+          </div>
+        
+
+                
+
+     </div> <!-- fecha a row -->
+
+                        <div class="row container-fluid"> <!-- abre a row --> 			
+
+                
+                </div>
+            
+
+  </div>
+  
+  
+
+    <form action="atividade_posto_trabalho.php"	method="post" id="form-atividade_posto_trabalho" >
+        <input type="hidden" id="produtoHidden"	name="produto" 	value="">
+        <input type="hidden" id="qtdHidden"		name="qtd"		value="">
+        <input type="hidden" id="linhaHidden"	name="linha"	value="">
+    </form>
+
+
+

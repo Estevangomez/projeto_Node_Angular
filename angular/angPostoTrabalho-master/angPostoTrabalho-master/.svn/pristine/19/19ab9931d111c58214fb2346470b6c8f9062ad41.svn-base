@@ -1,0 +1,48 @@
+<script>alert('Error ao adicionar Produto!')</script>
+<script>alert('O produto já está adicionado a essa linha, tente outro produto!') </script>
+
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="">
+				<div class="panel-heading">
+					<h1>PRODUTO <small>()</small></h1>
+				</div>
+				<div class="panel-body">
+				
+					<!-- <form action="atividade_posto_trabalho.php" method="post" class="form-horizontal" id="form-atividade-posto-trabalho"> -->
+                        
+
+                            <form>
+                                    <div class="form-group">
+                                      <label for="produto">Produto</label>
+                                      <select name="produto" id="produto" class="form-control"  (change)="mudou()">
+                                            <option value="0">Selecione um produto</option>								
+                                            <option *ngFor="let prod of produto;" value="{{prod.prod_id}}" >{{ prod.prod_nome_produto }}</option>"; 
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="QTD">Produção <br> QTD</label>
+                                      <select name="qtd" id="QTD" class="form-control" >
+                                            <option value="0">Selecione um produto</option>								
+                                            <option ></option>";
+                                      </select>
+                                    </div>
+                        		
+
+						<input type="hidden" name="acao" value="associar_produto_com_linha">
+
+						<div class="form-group">
+							<label for="" class="control-label col-md-8">&nbsp;</label>
+							<div class="col-md-8">
+								<button type="button" class="btn btn-success btn-block selecionar"> <i class="fa fa-check"></i> Confirmar</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>

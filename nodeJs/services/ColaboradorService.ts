@@ -146,6 +146,62 @@ class ColaboradorService{
         })
 
     }
+/**************************************CARGO  ************************************************ */
+    getAllCargo(){
+
+        return new Promise((resolve, rejects)=>{
+
+            this.conn.digiboard.connect( (err) => {
+                if(err){ return console.log(err); }
+            } );
+
+            this.conn.digiboard.query('SELECT * FROM cargo', (error, results) =>{
+
+                if(error){
+                    rejects({
+                            error,
+                            msg: 'Houve um problema ao listar cargos'
+                        })
+                    return
+                }
+
+                resolve(results);
+
+            });
+
+        });
+ 
+    }
+
+    inserirNewCargo(req){
+
+        return new Promise((resolve, rejects)=>{
+
+            const query = `INSERT INTO cargo (descricao) VALUES(?)`;
+            const data = [                
+                req.descricao
+                
+            ];           
+            
+            this.conn.digiboard.query(query,data, (error, results) => {
+
+                if(error){
+                    console.log('error', error);
+                    
+                    rejects({
+                            error,
+                            msg: ['Houve um problema ao inserir Colaborador']
+                        })
+                    return
+                }
+               
+                resolve(results);
+
+            });
+
+        });
+ 
+    }
 
 }
 

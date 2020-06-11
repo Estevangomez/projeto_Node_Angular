@@ -1,0 +1,21 @@
+import * as tslib_1 from "tslib";
+import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+var produtoRoutes = [
+//  {path:'produto',component:ProdutoListarComponent},
+//  {path:'produto/:id',component:ProdutoComponent},
+// {path:'produto/:id/editar',component:ProdutoFormComponent}
+];
+var ProdutoRoutingModule = /** @class */ (function () {
+    function ProdutoRoutingModule() {
+    }
+    ProdutoRoutingModule = tslib_1.__decorate([
+        NgModule({
+            imports: [RouterModule.forChild(produtoRoutes)],
+            exports: [RouterModule]
+        })
+    ], ProdutoRoutingModule);
+    return ProdutoRoutingModule;
+}());
+export { ProdutoRoutingModule };
+//# sourceMappingURL=produto.routing.mudule.js.map

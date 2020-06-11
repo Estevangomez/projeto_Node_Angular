@@ -1,0 +1,19 @@
+import * as tslib_1 from "tslib";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProdutoBibliotecaComponent } from './produto-biblioteca.component';
+var ProdutoBibliotecaModule = /** @class */ (function () {
+    function ProdutoBibliotecaModule() {
+    }
+    ProdutoBibliotecaModule = tslib_1.__decorate([
+        NgModule({
+            declarations: [ProdutoBibliotecaComponent],
+            imports: [
+                CommonModule
+            ]
+        })
+    ], ProdutoBibliotecaModule);
+    return ProdutoBibliotecaModule;
+}());
+export { ProdutoBibliotecaModule };
+//# sourceMappingURL=produto-biblioteca.module.js.map

@@ -1,0 +1,31 @@
+import { PostoTrabalho } from './interfaces/postoTrabalho';
+import { TipoPostoTrabalhoComponent } from './tipo-posto-trabalho/tipo-posto-trabalho.component';
+import { AssociarProdutoALinhaComponent } from './associar-produto-a-linha/associar-produto-a-linha.component';
+import { LinhaComponent } from './linha/linha.component';
+import { PostoTrabalhoComponent } from './posto-trabalho/posto-trabalho.component';
+import { FormProdutoComponent } from './produto/form-produto/form-produto.component';
+import { ProdutoConfigAtividadeComponent } from './produto-config-atividade/produto-config-atividade.component';
+import { LoginComponent } from './login/login.component';
+import { AppComponent } from './app.component';
+import { ProdutoListarComponent } from './produto/produto-listar/produto-listar.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { FormLoginComponent } from './login/form-login/form-login.component';
+
+
+const APP_ROUTES:Routes = [
+    {path:'',component:FormLoginComponent},
+    {path:'login',component:FormLoginComponent},
+    {path:'produto',component:ProdutoComponent},
+    {path:'atividade',component:ProdutoConfigAtividadeComponent},
+    {path:'produto/:id/editar',component:FormProdutoComponent},
+    {path:'posto-trabalho',component:PostoTrabalhoComponent},
+    {path:'posto-trabalho-tipo',component:TipoPostoTrabalhoComponent},
+    {path:'linha/:id',component:LinhaComponent},
+    {path:'associar-produto',component:AssociarProdutoALinhaComponent},
+    
+];
+
+
+export const routing :ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

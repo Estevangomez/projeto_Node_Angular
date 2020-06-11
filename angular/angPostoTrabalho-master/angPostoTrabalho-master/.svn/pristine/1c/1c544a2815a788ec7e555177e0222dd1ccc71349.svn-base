@@ -1,0 +1,46 @@
+import * as tslib_1 from "tslib";
+import { Injectable, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
+import * as io from 'socket.io-client';
+var MessageService = /** @class */ (function () {
+    function MessageService() {
+        this.notifier = new EventEmitter();
+        this.notifier1 = new EventEmitter();
+        this.notifierLogin = new EventEmitter();
+        this.socket = io("http://localhost:3000/api/v1/");
+    }
+    MessageService.prototype.notify = function (obj) {
+        this.notifier.emit(obj);
+    };
+    MessageService.prototype.notify1 = function (obj) {
+        this.notifier1.emit(obj);
+    };
+    MessageService.prototype.notifyLogin = function (obj) {
+        this.notifierLogin.emit(obj);
+    };
+    MessageService.prototype.sendNotification = function (send, obj) {
+        this.socket.emit(send, obj);
+    };
+    MessageService.prototype.getNotification = function () {
+        var _this = this;
+        return Observable.create(function (observer) {
+            _this.socket.on('read', function (msg) {
+                observer.next(msg);
+            });
+            _this.socket.on('new', function (msg) {
+                observer.next(msg);
+            });
+            _this.socket.on('email', function (msg) {
+                observer.next(msg);
+            });
+        });
+    };
+    MessageService = tslib_1.__decorate([
+        Injectable({
+            providedIn: 'root'
+        })
+    ], MessageService);
+    return MessageService;
+}());
+export { MessageService };
+//# sourceMappingURL=message.service.js.map

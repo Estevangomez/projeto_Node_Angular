@@ -1,0 +1,21 @@
+import { async, TestBed } from '@angular/core/testing';
+import { TipoPostoTrabalhoComponent } from './tipo-posto-trabalho.component';
+describe('TipoPostoTrabalhoComponent', function () {
+    var component;
+    var fixture;
+    beforeEach(async(function () {
+        TestBed.configureTestingModule({
+            declarations: [TipoPostoTrabalhoComponent]
+        })
+            .compileComponents();
+    }));
+    beforeEach(function () {
+        fixture = TestBed.createComponent(TipoPostoTrabalhoComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+    it('should create', function () {
+        expect(component).toBeTruthy();
+    });
+});
+//# sourceMappingURL=tipo-posto-trabalho.component.spec.js.map

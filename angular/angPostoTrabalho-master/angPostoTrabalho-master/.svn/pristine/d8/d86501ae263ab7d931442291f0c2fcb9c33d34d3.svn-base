@@ -1,0 +1,33 @@
+import * as tslib_1 from "tslib";
+import { Component } from '@angular/core';
+var AssociarProdutoALinhaComponent = /** @class */ (function () {
+    function AssociarProdutoALinhaComponent(apiService, route) {
+        this.apiService = apiService;
+        this.route = route;
+    }
+    AssociarProdutoALinhaComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.apiService.getProduto()
+            .subscribe(function (data) {
+            _this.produto = data.result;
+        });
+        //this.route.params.subscribe(params => this.prodConfigId = params['2']);
+        this.apiService.getProdConfigById(this.prodConfigId)
+            .subscribe(function (data) {
+            // this.produto = data.result;
+        });
+    };
+    AssociarProdutoALinhaComponent.prototype.mudou = function () {
+        console.log("Mudou");
+    };
+    AssociarProdutoALinhaComponent = tslib_1.__decorate([
+        Component({
+            selector: 'app-associar-produto-a-linha',
+            templateUrl: './associar-produto-a-linha.component.html',
+            styleUrls: ['./associar-produto-a-linha.component.css']
+        })
+    ], AssociarProdutoALinhaComponent);
+    return AssociarProdutoALinhaComponent;
+}());
+export { AssociarProdutoALinhaComponent };
+//# sourceMappingURL=associar-produto-a-linha.component.js.map

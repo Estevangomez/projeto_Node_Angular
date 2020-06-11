@@ -1,0 +1,38 @@
+import { ApiService } from './../providers/posto-trabalho.service';
+import { Usuario } from './../interfaces/usuario';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import {FormControl, FormGroup, Validators,FormBuilder } from "@angular/forms";
+import { LoginService } from '../providers/login.service';
+import {  Router, ActivatedRoute } from '@angular/router';
+import { MessageService } from '../providers/message.service';
+import { HttpClientModule } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import {Observable} from 'rxjs';
+import { UtilsService } from '../utils/utils.service';
+import { stringify } from 'querystring';
+
+declare var test: any;
+
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
+})
+export class LoginComponent implements OnInit {
+ 
+
+  constructor(private router:Router) {
+
+
+   }
+
+  ngOnInit() { 
+
+  }
+ 
+/***************************************************************************************** */
+
+} 
+

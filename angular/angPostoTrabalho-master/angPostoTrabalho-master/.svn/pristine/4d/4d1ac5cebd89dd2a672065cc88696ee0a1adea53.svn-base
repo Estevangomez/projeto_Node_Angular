@@ -1,0 +1,24 @@
+import * as tslib_1 from "tslib";
+import { Injectable } from '@angular/core';
+//import {url}  from './../utils/utils.service';
+var UtilsService = /** @class */ (function () {
+    function UtilsService(http) {
+        this.http = http;
+        this.endPoint = "http://localhost:3000/api/v1/";
+        this.urlBiometria = "http://localhost:9000/api/public/v1/captura/1";
+    }
+    UtilsService.prototype.getEndPoint = function () {
+        return this.endPoint;
+    };
+    UtilsService.prototype.getUrlBiometria = function () {
+        return this.urlBiometria;
+    };
+    UtilsService = tslib_1.__decorate([
+        Injectable({
+            providedIn: 'root'
+        })
+    ], UtilsService);
+    return UtilsService;
+}());
+export { UtilsService };
+//# sourceMappingURL=utils.service.js.map

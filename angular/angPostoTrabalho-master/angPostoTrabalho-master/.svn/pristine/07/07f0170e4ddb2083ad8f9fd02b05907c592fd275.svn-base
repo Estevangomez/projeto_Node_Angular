@@ -1,0 +1,43 @@
+import { ApiService } from '../providers/posto-trabalho.service';
+import { Component, OnInit,Input, ViewChild } from '@angular/core';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
+import { Router, ActivatedRoute } from '@angular/router';
+
+//import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-posto-trabalho',
+  templateUrl: './posto-trabalho.component.html',
+  styleUrls: ['./posto-trabalho.component.css']
+})
+export class PostoTrabalhoComponent implements OnInit {
+  srcImgPosto:string = './assets/imagens/__boy.png';
+  posto :any[];
+
+  @ViewChild('linhaId',{static: false}) linhaId: HTMLElement;
+
+
+  linha:any[];
+  idPosto:number;
+  constructor(private apiService:ApiService, private route:ActivatedRoute) {
+    
+    
+  }
+  ngOnInit() {
+    this.apiService.getPosto()
+    .subscribe(
+      (data:any) =>{
+        this.posto = data.result; 
+        
+        this.route.params.subscribe(params => this.linhaId = params['']);
+    });
+  
+    this.route.params.subscribe(params => this.idPosto = params['']);
+    this.apiService.getPostoByIdAtiv(this.idPosto).subscribe((data:any) =>{
+      this.idPosto = data.result;
+    })
+    
+    
+  }
+
+}

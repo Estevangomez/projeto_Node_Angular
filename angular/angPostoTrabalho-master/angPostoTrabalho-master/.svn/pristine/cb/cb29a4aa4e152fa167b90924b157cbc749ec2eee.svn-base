@@ -1,0 +1,93 @@
+import { Linha } from './../interfaces/linha';
+import {FormControl, FormGroup, Validators,FormBuilder } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../providers/posto-trabalho.service';
+import { UtilsService } from '../utils/utils.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-produto',
+  templateUrl: './produto.component.html',
+  
+})
+export class ProdutoComponent implements OnInit {
+
+  srcImagem:string = '/assets/imagens/logo-posto-trabalho-menor.png';
+
+   
+  url:[];
+ 
+  private getlinha:any;
+  linh:any;
+  codlinha:any;
+  private produtos:any = [];
+  produto:any;
+  existeprodutos:boolean = false;
+  naoExisteProdutos:boolean = true;
+
+
+  constructor(private ApiService:ApiService, private endPoint:UtilsService,private router: Router, private route:ActivatedRoute) { }
+
+  ngOnInit() {
+  
+   
+   let linha =  JSON.parse(sessionStorage.getItem('linha')); 
+   console.log("Codigo Linha === " , linha);
+    
+   this.ApiService.getLinhaById(linha)
+   .subscribe((data:any)=>{
+    this.getlinha = data.result;   
+    
+    this.linh = this.getlinha[0].linha;
+    this.codlinha = this.getlinha[0].codigo
+    
+     
+   })
+   
+   this.getProdByIdLinha();
+  }
+  
+  getProdByIdLinha(){
+  let linha =  JSON.parse(sessionStorage.getItem('linha')); 
+
+   this.ApiService.getProdByIdLinha(linha).subscribe((dataProd:any)=>{
+     this.produtos = dataProd.result; 
+
+      console.log("Produtos ==== ",this.produtos);
+      
+      if(this.produtos == "" || this.produtos == null){
+        this.existeprodutos = true;
+        this.naoExisteProdutos = false;
+        
+      }else{
+        this.existeprodutos = false;
+        this.naoExisteProdutos = true;
+        
+      }   
+  
+   
+        
+   })
+ }
+
+  ProdutoConfig(){
+    
+    this.router.navigate(['/configurar-produto']);		
+    
+  }
+
+  getProd(produto:any,qtd:any){   
+    
+    console.log("Cod_produto======",produto);
+    console.log("quantidade ==== ",qtd);
+    
+    
+    sessionStorage.setItem('produto', JSON.stringify(produto)); 
+    sessionStorage.setItem('qtd', JSON.stringify(qtd));        
+      
+    this.router.navigate(['/atividade']);	
+  }
+
+  
+
+}

@@ -1,0 +1,19 @@
+import * as tslib_1 from "tslib";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PostoTrabalhoMaquinasComponent } from './posto-trabalho-maquinas.component';
+var PostoTrabalhoMaquinasModule = /** @class */ (function () {
+    function PostoTrabalhoMaquinasModule() {
+    }
+    PostoTrabalhoMaquinasModule = tslib_1.__decorate([
+        NgModule({
+            declarations: [PostoTrabalhoMaquinasComponent],
+            imports: [
+                CommonModule
+            ]
+        })
+    ], PostoTrabalhoMaquinasModule);
+    return PostoTrabalhoMaquinasModule;
+}());
+export { PostoTrabalhoMaquinasModule };
+//# sourceMappingURL=posto-trabalho-maquinas.module.js.map

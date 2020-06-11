@@ -1,0 +1,142 @@
+<div class="container-full">
+  <div class="card bg-light">
+    <div class="card-header"><br>
+
+      <div class="col-md-12">
+        <h2 style="font-size:20px; color:#0081c1;">
+          
+        </h2>
+      </div>
+      <h2 style="font-size:22px; color:#434343; text-align:center;"> Selecione posto de trabalho </h2>
+
+    </div>
+
+    <br><br>
+
+
+    <form [formGroup]="colaboradorForm">
+      <div class="form-group row" style="font-size:180%">&nbsp; &nbsp;
+        <div class="col-sm-6" style="display: inline">
+          <select name="colaborador" id="colaborador" formControlName="colaborador"
+            class="js-example-basic-single form-control" style="font-size:70%" (change)="mudouColaborador($event)">
+            <option *ngFor="let colaborador of colaboradores" [value]='colaborador.codigo'>{{colaborador.nome}}</option>
+
+          </select>
+        
+        </div>
+        <div class="col-sm-2" style="display: inline">
+          <button type="button" class="btn btn-primary btn-block bt-add-lider"
+            (click)="selectColaborador($event.target.value,colaborador)" *ngIf="disableButton" > <i class="fa fa-plus"></i> Adicionar</button>
+        </div>
+      </div>
+    </form>
+
+    <br>
+
+    <div id="divPostos" class="row"  *ngIf="!existepostos">
+
+      <div class="col-sm-2 form-check" *ngFor="let posto of postos;let i = index;" value='posto.codPostoTrabalho'
+        name="posto">
+
+        <div class="card">
+          <div class="card-body">
+
+            <input class="form-check-input" type="checkbox" [value]="posto.codPostoTrabalho"
+              (change)="onChange(posto.codPostoTrabalho, $event.target.checked)" name="posto.codPostoTrabalho" />
+            <p style="color:#ffffff;text-align: center;">{{ posto.nome_posto }}</p>
+            <label class="custom-control custom-checkbox" style="color:#ffffff;text-align: center;"
+              for="posto.codPostoTrabalho">{{ posto.observacao }} <br>
+
+            </label>
+          </div>
+
+          <div class="button btn-warning bt-lupa" id="lupa"
+            (click)="listaColabAssociados(posto.codPostoTrabalho,mymodal)">
+            <i class="fa fa-search "></i>
+          </div>
+
+        </div>
+        <br>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="!naoExistePostos">
+			<div class="col-sm-12">                                                     
+				<div class="alert alert-info text-center col-sm-12" role="alert">
+					  <h4> NÃO EXISTE POSTO ASSOCIADO A NENHUMA ATIVIDADE PARA ESTA CONFIGURAÇÃO</h4>
+				</div>                             
+			</div>      
+
+	 </div>	
+
+
+
+    <!-- The Modal -->
+    <div class="modal modal-fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true"
+      [style.display]="showModal ? 'block' : 'none'">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Lista de colaborador(es) :</h4>
+            <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Colaborador</th>
+                  <th>DRT</th>
+                  <th>Setor</th>
+                  <th>Atividade</th>
+                  <th> - </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let colaborador of colaboradoresAssociados">
+                  <th scope="row">{{colaborador.nome}}</th>
+                  <td>{{colaborador.drt}}</td>
+                  <td>{{colaborador.setor}}</td>
+                  <td>{{colaborador.atividade}}</td>
+                  <td><a href='http://147.1.0.84/sisconp2/visualizar_user.php?codigo={{colaborador.codigo}}'
+                      target="_blank"><i class="fa fa-search "></i></a></td>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hide()">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+
+
+
+  <br>&nbsp; &nbsp; &nbsp;
+
+
+
+
+  <table>
+    <tr *ngFor="let colab of colabList;let i = index" class="table table-hover">
+
+      &nbsp; &nbsp; &nbsp;   <td > Nome: &nbsp; &nbsp; &nbsp; {{colab.nome}} &nbsp; &nbsp; &nbsp; </td>
+
+       <td width="50%" align="right">  &nbsp; &nbsp; &nbsp;<button class="btn btn-primary btn-xs"
+            (click)="confirmarColaborador(i)">Confirmar</button> </td>
+
+    </tr>
+  </table>
+
+</div>

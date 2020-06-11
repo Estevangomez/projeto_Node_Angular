@@ -1,0 +1,19 @@
+import * as tslib_1 from "tslib";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { PostoSituacaoFuncComponent } from './posto-situacao-func.component';
+var PostoSituacaoFuncModule = /** @class */ (function () {
+    function PostoSituacaoFuncModule() {
+    }
+    PostoSituacaoFuncModule = tslib_1.__decorate([
+        NgModule({
+            declarations: [PostoSituacaoFuncComponent],
+            imports: [
+                CommonModule
+            ]
+        })
+    ], PostoSituacaoFuncModule);
+    return PostoSituacaoFuncModule;
+}());
+export { PostoSituacaoFuncModule };
+//# sourceMappingURL=posto-situacao-func.module.js.map

@@ -1,0 +1,21 @@
+import { async, TestBed } from '@angular/core/testing';
+import { AssociarProdutoALinhaComponent } from './associar-produto-a-linha.component';
+describe('AssociarProdutoALinhaComponent', function () {
+    var component;
+    var fixture;
+    beforeEach(async(function () {
+        TestBed.configureTestingModule({
+            declarations: [AssociarProdutoALinhaComponent]
+        })
+            .compileComponents();
+    }));
+    beforeEach(function () {
+        fixture = TestBed.createComponent(AssociarProdutoALinhaComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+    it('should create', function () {
+        expect(component).toBeTruthy();
+    });
+});
+//# sourceMappingURL=associar-produto-a-linha.component.spec.js.map

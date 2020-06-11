@@ -1,0 +1,13 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProdutoConfigLinhaComponent } from './produto-config-linha.component';
+
+
+
+@NgModule({
+  declarations: [ProdutoConfigLinhaComponent],
+  imports: [
+    CommonModule
+  ]
+})
+export class ProdutoConfigLinhaModule { }

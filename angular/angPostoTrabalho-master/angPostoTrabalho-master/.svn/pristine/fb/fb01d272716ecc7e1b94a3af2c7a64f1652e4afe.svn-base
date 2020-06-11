@@ -1,0 +1,122 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs';
+import { UtilsService } from '../utils/utils.service';
+import { map } from 'rxjs/operators';
+//import {url}  from './../utils/utils.service';
+
+
+
+//import { map } from 'rxjs/add/operator/map';
+
+
+
+@Injectable()
+export class ApiService {
+  
+    private url:any;    
+    private urlBiometriaCad:any ='http://localhost:9000/api/public/v1/captura/Capturar/1';
+
+  
+  
+    constructor(private http:HttpClient,private endPoint:UtilsService) { }   
+    
+/****************************  PRODUTO  ****************************************/
+
+    getProdConfigById(id:number){
+        this.url = this.endPoint.getEndPoint();
+    return this.http.get(this.url+"produto/produto-config/"+id);       
+    }
+
+    getProduto():Observable<any>{
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url+"produto/produto");       
+    }
+
+    getProdById(id:number):Observable<any>{   
+        this.url = this.endPoint.getEndPoint();                   
+        return this.http.get(this.url+"produto/produto/"+id);    
+    }
+
+/****************************     POSTO  ***************************************************/
+
+    getPosto(){
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url+'posto/posto');       
+    }
+    
+    getPostoByIdAtiv(id:number){
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url+"posto/posto/"+id);       
+    }
+
+    getTipoPosto(){
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url+"tipo-posto");       
+    }
+
+/********************************** LINHA  ******************************************************* */
+
+    
+    getLinha():Observable<any>{
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url+'linha');       
+    }
+    getLinhaById(id:number){
+        this.url = this.endPoint.getEndPoint();       
+        return this.http.get(this.url+'linha/'+id);
+    }
+    
+    getLinhaByIdEmpresa(id:number){
+        this.url = this.endPoint.getEndPoint();                
+        return this.http.get(this.url+'linha/empresa/'+id);
+    }
+
+
+
+/*************************************  ATIVIDADE ************************************************************** */  
+
+    getConfigAtividade(){
+        this.url = this.endPoint.getEndPoint();   
+        return this.http.get(this.url+"produto/config-atividade");       
+
+    }
+
+    getAtividades(){
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url+"atividade");       
+    }
+
+
+/**************************************** BIBLIOTECA  ***************************************************************************/
+    getBiblioteca():Observable<any>{
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url+"biblioteca");       
+    } 
+
+
+/************************************************USUARIOS COM DIGITAIS CADASTRADAS  ********************************************************************************* */    
+
+    getUsersDigitais(){
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url+'users-cadastrados');       
+    }
+
+/****************************************************** URL Biometria  *********************************************************************************** */
+
+    getUrlBiometria(){
+        this.url = this.endPoint.getUrlBiometria();
+        return this.http.get(this.urlBiometriaCad);
+
+    }
+/*****************************************************   FAMÍLIA   ************************************************************************************************** */
+    getFamilia(){
+        this.url = this.endPoint.getEndPoint()
+        return this.http.get(this.url+'familia');
+        
+        
+    }  
+
+
+
+}

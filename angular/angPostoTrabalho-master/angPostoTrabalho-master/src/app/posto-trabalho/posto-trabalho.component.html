@@ -1,0 +1,47 @@
+<style>
+.card{
+    border-radius: 10px 10px;
+}
+
+</style>
+
+<div class="container-full">
+	<div class="card bg-light">
+		<div class="card-header"><br>
+
+			<div class="col-md-12 inline">
+				<h2 style="font-size:20px; color:#0081c1;">	
+				</h2>
+			</div>
+			<br>
+			<h2 style="font-size:22px; color:#434343; text-align:center;"> Selecione posto de trabalho </h2>
+
+		</div>
+		<br><br>
+
+		<div class="row text-center" *ngIf="!existepostos" style="width:70%; height:70%;  padding: 25px 50px;">
+			<div class="col-sm-6 col-lg-2 py-2"  *ngFor="let pos of postos;let i = index" value="pos.codPostoTrabalho"
+				data-codPT="pos.codPostoTrabalho" data-preenchido="pos.preenchido"
+				(click)="associarAoPosto(pos.codPostoTrabalho)">
+				<div class="card h-100"   [ngStyle]="{'background-color':  pos.codFun != null ? 'green' : ' ' }">
+					<div class="card-body">
+						<img [src]="pos.foto" class="mx-auto d-block" style="height: 85px; width: 75px;">
+						<p class="card-text text-white"> {{pos.nome}}</p>
+						<p class="card-text text-white"> {{pos.observacao}}</p>
+						<h5 class="card-title text-white">{{ pos.nome_posto }}</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" *ngIf="!naoExistePostos">
+			<div class="col-sm-12">                                                     
+				<div class="alert alert-info text-center col-sm-12" role="alert">
+					  <h4> NÃO EXISTE POSTO ASSOCIADO A NENHUMA ATIVIDADE PARA ESTA CONFIGURAÇÃO</h4>
+				</div>                             
+			</div>      
+
+	 </div>	
+		<br><br>
+	</div>
+</div>

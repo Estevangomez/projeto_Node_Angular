@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-produto-config',
+  templateUrl: './produto-config.component.html',
+  styleUrls: ['./produto-config.component.css']
+})
+export class ProdutoConfigComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

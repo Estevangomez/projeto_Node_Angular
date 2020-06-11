@@ -1,0 +1,21 @@
+import { async, TestBed } from '@angular/core/testing';
+import { ProdutoConfigLinhaDiaComponent } from './produto-config-linha-dia.component';
+describe('ProdutoConfigLinhaDiaComponent', function () {
+    var component;
+    var fixture;
+    beforeEach(async(function () {
+        TestBed.configureTestingModule({
+            declarations: [ProdutoConfigLinhaDiaComponent]
+        })
+            .compileComponents();
+    }));
+    beforeEach(function () {
+        fixture = TestBed.createComponent(ProdutoConfigLinhaDiaComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+    it('should create', function () {
+        expect(component).toBeTruthy();
+    });
+});
+//# sourceMappingURL=produto-config-linha-dia.component.spec.js.map

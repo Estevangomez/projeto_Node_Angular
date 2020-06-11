@@ -1,0 +1,19 @@
+import * as tslib_1 from "tslib";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { LinhaComponent } from './linha.component';
+var LinhaModule = /** @class */ (function () {
+    function LinhaModule() {
+    }
+    LinhaModule = tslib_1.__decorate([
+        NgModule({
+            declarations: [LinhaComponent],
+            imports: [
+                CommonModule
+            ]
+        })
+    ], LinhaModule);
+    return LinhaModule;
+}());
+export { LinhaModule };
+//# sourceMappingURL=linha.module.js.map

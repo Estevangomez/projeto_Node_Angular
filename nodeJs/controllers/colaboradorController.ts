@@ -25,8 +25,7 @@ class ColaboradorController{
     }
 
     async create(req: Request, res:Response){
-        console.log(req.body);
-        
+              
         await ColaboradorService.inserir(req.body)
         .then(colaborador => Helper.sendResponse(res, HttpStatus.OK, colaborador))
         .catch(error => Helper.sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, error));
@@ -45,6 +44,21 @@ class ColaboradorController{
         .then(colaborador => Helper.sendResponse(res, HttpStatus.OK, colaborador))
         .catch(error => Helper.sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, error));
     }
+/*******************************CARGO********************************************** */
+    async getAllCargo(req: Request, res:Response){
+       
+        await ColaboradorService.getAllCargo()
+        .then(cargo => Helper.sendResponse(res, HttpStatus.OK, cargo))
+        .catch(error => Helper.sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, error));
+    }
+
+    async createNewCargo(req: Request, res:Response){
+              
+        await ColaboradorService.inserirNewCargo(req.body)
+        .then(cargo => Helper.sendResponse(res, HttpStatus.OK, cargo))
+        .catch(error => Helper.sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, error));
+    }
+
 
 }
 

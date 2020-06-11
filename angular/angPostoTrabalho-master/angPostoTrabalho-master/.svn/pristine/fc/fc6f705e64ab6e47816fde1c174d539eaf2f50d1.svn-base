@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+
+.navbar-expand-lg {
+    background-color: #2fa4e7;
+}
+
+.div.col-md-3{
+    display: inline-block;
+}
+
+.card{
+    background-color: #2fa4e7;
+}

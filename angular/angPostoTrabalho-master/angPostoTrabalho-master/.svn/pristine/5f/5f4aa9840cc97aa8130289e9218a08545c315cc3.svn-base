@@ -1,0 +1,26 @@
+import { TreinamentoColaboradorComponent } from './../treinamento-colaborador/treinamento-colaborador.component';
+import { PostoTrabalhoRoutingModule } from './posto-trabalho-routing.module';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+
+//import { HttpClient } from '@angular/common/http';
+import { PostoTrabalhoComponent } from './posto-trabalho.component';
+
+
+
+
+
+@NgModule({
+  declarations: [PostoTrabalhoComponent,TreinamentoColaboradorComponent
+  ],
+  exports:[PostoTrabalhoComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    PostoTrabalhoRoutingModule
+  ],
+  providers:[]
+})
+export class PostoTrabalhoModule { }

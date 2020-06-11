@@ -1,0 +1,20 @@
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="/produto"><img [src]="srcImagem" width="142" height="39" alt="" style="margin-top:-9px; margin-right:30px;"></a> 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div   class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto">      
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+        <ul class="nav navbar-nav navbar-right ">&nbsp;<br>
+            <li> <button type="button" class="btn btn-light" (click)="voltar()" >Voltar</button></li>&nbsp; &nbsp;
+            <li> <button type="button" class="btn btn-light" (click)="logout()"> Sair </button>   </li>          
+        </ul>
+    </form>
+   </div>
+</nav>
+<br><br>

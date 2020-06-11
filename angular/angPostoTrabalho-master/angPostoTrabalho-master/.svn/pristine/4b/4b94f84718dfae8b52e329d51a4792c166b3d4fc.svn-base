@@ -1,0 +1,19 @@
+import * as tslib_1 from "tslib";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormProdutoComponent } from './form-produto.component';
+var FormProdutoModule = /** @class */ (function () {
+    function FormProdutoModule() {
+    }
+    FormProdutoModule = tslib_1.__decorate([
+        NgModule({
+            declarations: [FormProdutoComponent],
+            imports: [
+                CommonModule
+            ]
+        })
+    ], FormProdutoModule);
+    return FormProdutoModule;
+}());
+export { FormProdutoModule };
+//# sourceMappingURL=form-produto.module.js.map

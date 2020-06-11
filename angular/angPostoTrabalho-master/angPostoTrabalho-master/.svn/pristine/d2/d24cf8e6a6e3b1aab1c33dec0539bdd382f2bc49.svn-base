@@ -1,0 +1,25 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { PostoTrabalhoComponent } from './posto-trabalho.component';
+
+describe('PostoTrabalhoComponent', () => {
+  let component: PostoTrabalhoComponent;
+  let fixture: ComponentFixture<PostoTrabalhoComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ PostoTrabalhoComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(PostoTrabalhoComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

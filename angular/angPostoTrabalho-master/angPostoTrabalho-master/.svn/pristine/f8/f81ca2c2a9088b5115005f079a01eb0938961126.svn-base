@@ -1,0 +1,57 @@
+
+    
+    <div class="container-full">		
+        <div class="card bg-light">
+            <div class="card-header"><br><br>
+                <h1><a href="/produto" >PRODUTO </a><small>(linha)</small></h1>
+                <div class="" style="float:right; margin-top:-50px" >
+               
+                        <form action="" id="form-desassociar-linha" style ='float: left; padding: 5px;'>
+                            <button type="button" class="btn btn-large btn-success bt-sair">
+                                <i class="fa fa-cog fa-xs"></i> Desassociar
+                            </button>
+                        </form>                
+                        <form action="menu_config_produto.php" id="form-menu-config-produto" style ='float: left; padding: 5px;'>
+                        <!-- <input type="hidden" name="config_user" id="config_user"> -->
+                        
+                        <button type="button" class="btn btn-large btn-warning bt-config">
+                            <i class="fa fa-cog"></i> Configuração
+                        </button>
+                    </form>	
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                    <div class="col-sm-6 col-lg-3 py-2"  *ngFor="let prod of produto;">
+                            <div class="card h-100">                              
+                                <div class="card-body">
+                                        <a [routerLink]="['/atividade']">  <h4 class="card-title"  style="color:#ffffff;">{{ prod.prod_nome_produto }}</h4>
+                                            <p class="card-text text-white">{{ prod.prod_descricao_modelo }}</p></a>                                  
+                                </div>
+                            </div>
+                        </div>          
+
+          </div>	
+
+			<br>	
+
+		</div> <!-- fecha a row -->
+
+						<div class="row container-fluid"> <!-- abre a row --> 			
+
+				
+				</div>
+			
+
+  </div>
+  
+
+
+	<form action=""	method="post" id="form-atividade_posto_trabalho" >
+		<input type="hidden" id="produtoHidden"	name="produto" 	value="">
+		<input type="hidden" id="qtdHidden"		name="qtd"		value="">
+		<input type="hidden" id="linhaHidden"	name="linha"	value="">
+	</form>
+
+
+

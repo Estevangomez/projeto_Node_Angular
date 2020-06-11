@@ -1,0 +1,18 @@
+import * as tslib_1 from "tslib";
+import { Component } from '@angular/core';
+var ProdutoConfigComponent = /** @class */ (function () {
+    function ProdutoConfigComponent() {
+    }
+    ProdutoConfigComponent.prototype.ngOnInit = function () {
+    };
+    ProdutoConfigComponent = tslib_1.__decorate([
+        Component({
+            selector: 'app-produto-config',
+            templateUrl: './produto-config.component.html',
+            styleUrls: ['./produto-config.component.css']
+        })
+    ], ProdutoConfigComponent);
+    return ProdutoConfigComponent;
+}());
+export { ProdutoConfigComponent };
+//# sourceMappingURL=produto-config.component.js.map

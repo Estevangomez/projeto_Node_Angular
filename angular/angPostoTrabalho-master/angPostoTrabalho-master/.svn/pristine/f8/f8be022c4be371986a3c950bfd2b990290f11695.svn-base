@@ -1,0 +1,27 @@
+import * as tslib_1 from "tslib";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProdutoComponent } from './produto.component';
+import { ProdutoListarComponent } from './produto-listar/produto-listar.component';
+import { ProdutoRoutingModule } from './produto.routing.mudule';
+var ProdutoModule = /** @class */ (function () {
+    function ProdutoModule() {
+    }
+    ProdutoModule = tslib_1.__decorate([
+        NgModule({
+            declarations: [
+                ProdutoComponent,
+                ProdutoListarComponent
+            ],
+            exports: [ProdutoComponent],
+            imports: [
+                CommonModule,
+                ProdutoRoutingModule
+            ],
+            providers: []
+        })
+    ], ProdutoModule);
+    return ProdutoModule;
+}());
+export { ProdutoModule };
+//# sourceMappingURL=produto.module.js.map

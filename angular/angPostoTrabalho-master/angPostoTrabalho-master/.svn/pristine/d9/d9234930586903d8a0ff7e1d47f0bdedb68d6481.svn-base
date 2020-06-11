@@ -1,0 +1,24 @@
+import * as tslib_1 from "tslib";
+import { Component } from '@angular/core';
+var NavbarComponent = /** @class */ (function () {
+    function NavbarComponent() {
+        this.srcImagem = '/assets/imagens/logo-posto-trabalho-menor.png';
+        this.isCollapsed = false;
+    }
+    NavbarComponent.prototype.ngOnInit = function () {
+        var linha = JSON.parse(sessionStorage.getItem('linha'));
+        console.log("Linha NavBar", linha);
+    };
+    NavbarComponent.prototype.voltar = function () {
+        window.history.back();
+    };
+    NavbarComponent = tslib_1.__decorate([
+        Component({
+            selector: 'app-navbar',
+            templateUrl: './navbar.component.html',
+        })
+    ], NavbarComponent);
+    return NavbarComponent;
+}());
+export { NavbarComponent };
+//# sourceMappingURL=navbar.component.js.map

@@ -1,0 +1,19 @@
+import * as tslib_1 from "tslib";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProdutoConfigAtividadeComponent } from './produto-config-atividade.component';
+var ProdutoAtividadeModule = /** @class */ (function () {
+    function ProdutoAtividadeModule() {
+    }
+    ProdutoAtividadeModule = tslib_1.__decorate([
+        NgModule({
+            declarations: [ProdutoConfigAtividadeComponent],
+            imports: [
+                CommonModule
+            ]
+        })
+    ], ProdutoAtividadeModule);
+    return ProdutoAtividadeModule;
+}());
+export { ProdutoAtividadeModule };
+//# sourceMappingURL=produto-config-atividade.module.js.map
