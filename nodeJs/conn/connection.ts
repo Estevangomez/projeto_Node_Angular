@@ -5,7 +5,7 @@ export class Connection{
     digiboard = mysql.createConnection({
         host: 'localhost',
         port: 3306,
-        user: 'digiboard',
+        user: 'root',
         password: '',
         database: 'digiboard'
 

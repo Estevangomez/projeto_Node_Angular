@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule }         from '@angular/forms';
   ],
   exports:[
     FormCadastrarColaboradorComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule   
   ]
 })
 export class FormCadastrarColaboradorModule { }

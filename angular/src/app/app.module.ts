@@ -1,3 +1,4 @@
+import { FormEditarColaboradorModule } from './form-editar-colaborador/form-editar-colaborador.module';
 import { FormCadastrarColaboradorModule } from './form-cadastrar-colaborador/form-cadastrar-colaborador.module';
 import { CargoService } from './providers/cargo.service';
 import { routing } from './app.routing';
@@ -14,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     routing,
     RouterModule,
     FormCadastrarColaboradorModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormEditarColaboradorModule,
+    FormsModule
   ],
   providers: [
     ApiService,

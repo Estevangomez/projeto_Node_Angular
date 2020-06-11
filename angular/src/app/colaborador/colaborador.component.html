@@ -27,9 +27,9 @@
         <td>{{ colaborador.telefone }}</td>
         <td>{{ colaborador.empresa }}</td> 
         <td>{{ colaborador.setor }}</td> 
-        <td >{{ colaborador.id_cargo }}</td>
-        <td > 
-          <button type='button' class='btn btn-outline-warning btn-sm' value='editar'>Editar</button>&nbsp; &nbsp; 
+        <td>{{ colaborador.id_cargo }}</td>
+        <td> 
+          <a [routerLink]="['editar']" [queryParams]="{ idcolaborador: colaborador.codigo }"><button type='button' class='btn btn-outline-warning btn-sm' value='editar'>Editar</button></a>&nbsp; &nbsp; 
           <button type='button' class='btn btn-outline-danger btn-sm' value='Remover' (click)='removerColaborador(colaborador.codigo)'>Remover</button> 
          </td>
     </tbody>

@@ -70,7 +70,8 @@ class ColaboradorService{
     }
 
     findById(_id){
-
+        console.log("==========",_id);
+        
         return new Promise( (resolve, rejects) => {
 
             this.conn.digiboard.query(`SELECT * FROM colaborador WHERE codigo = ?`, [_id],  (error, results) => {

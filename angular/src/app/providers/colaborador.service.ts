@@ -20,9 +20,15 @@ export class ApiService {
 
     }
 
-    removerColaborador(idcolaborador: any) {
-        console.log(idcolaborador);
-        
+    editarColaborador(colaborador: any,idcolaborador) {
+        this.url = this.endPoint.getEndPoint();
+        return this.http.put(this.url + "colaborador/"+idcolaborador,colaborador);
+
+    }
+
+    
+
+    removerColaborador(idcolaborador: any) {              
         this.url = this.endPoint.getEndPoint();
         return this.http.delete(this.url + "colaborador/"+idcolaborador);
     }
@@ -30,6 +36,13 @@ export class ApiService {
     getAllColaborador() {
         this.url = this.endPoint.getEndPoint();
         return this.http.get(this.url + "colaborador/");
+
+    }  
+
+    getBeanColaborador(idcolaborador) {     
+        
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url + "colaborador/"+idcolaborador);
 
     }  
 

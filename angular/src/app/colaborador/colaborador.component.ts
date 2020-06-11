@@ -15,6 +15,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class ColaboradorComponent implements OnInit {
   idcargo:any;
+  colaborador:any;
   colaboradores:any = [];
   cargos:any = [];
   cargo:any = [];
@@ -43,9 +44,12 @@ export class ColaboradorComponent implements OnInit {
     .subscribe((data:any)=>{
     
       console.warn(data);
-    })
+    })   
 
-    
+  }
+
+  getBeanColaborador(idcolaborador){  
+    this.router.navigate(['colaborador/editar'], { queryParams: { idcolaborador: idcolaborador } });   
 
   }
   

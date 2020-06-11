@@ -1,8 +1,8 @@
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../providers/colaborador.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-form-cadastrar-colaborador',
