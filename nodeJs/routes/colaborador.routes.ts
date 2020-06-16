@@ -15,6 +15,7 @@ router.route('/colaborador/:id').delete(colaboradorController.delete);
 /*******************************  CARGO  ******************************************* */ 
 
 router.route('/cargo').get(colaboradorController.getAllCargo);
+router.route('/cargo/:id').get(colaboradorController.getBeanCargo);
 router.route('/cargo').post(colaboradorController.createNewCargo);
 
 export default router;

@@ -1,3 +1,4 @@
+import { CargoService } from './../providers/cargo.service';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../providers/colaborador.service';
 import { HttpClient } from '@angular/common/http';
@@ -21,15 +22,21 @@ export class FormEditarColaboradorComponent implements OnInit {
   empresa:any
   setor:any
   id_cargo:any
-  constructor(private FormBuilder:FormBuilder,private http:HttpClient, private apiService:ApiService,private router: Router, private route:ActivatedRoute) {
+  cargos:any;
+
+  constructor(private FormBuilder:FormBuilder,private http:HttpClient, private apiService:ApiService,private CargoService:CargoService, private router: Router, private route:ActivatedRoute) {
 
    
     this.route.queryParams.subscribe(params => {
         this.idcolaborador = params['idcolaborador'];
 
+        console.log("idcolaborador",this.idcolaborador);
+        
+
         this.apiService.getBeanColaborador(this.idcolaborador)
         .subscribe((data:any)=>{
           this.colaborador = data.result;
+          console.log(this.colaborador);
           this.nome =  this.colaborador[0].nome;
           this.telefone =  this.colaborador[0].telefone;
           this.email =  this.colaborador[0].email;
@@ -37,8 +44,8 @@ export class FormEditarColaboradorComponent implements OnInit {
           this.setor =  this.colaborador[0].setor;
           this.id_cargo =  this.colaborador[0].id_cargo;
           this.idcolaborador =  this.colaborador[0].codigo;;
-          console.warn( this.colaborador);
-
+        
+         
 
          
          
@@ -50,6 +57,7 @@ export class FormEditarColaboradorComponent implements OnInit {
 
   ngOnInit(): void {
     this.formulario = this.FormBuilder.group({
+      idcolaborador:'',
       nome:'',
       email:'',
       telefone:'',
@@ -59,17 +67,41 @@ export class FormEditarColaboradorComponent implements OnInit {
 
     })
 
+    this.CargoService.getAllCargo()
+    .subscribe((data:any)=>{
+     this.cargos = data.result;   
+           
+    })
    
     
   }
 
   onSubmit(info){
-    console.warn(info);
+    if(this.formulario.controls['nome'].value == "" ){
+      alert(" Nome  não pode ficar vazio");
+    }else if(this.formulario.controls['email'].value == ""){
+      alert ("Email não pode ficar vazio");
+    }else if(this.formulario.controls['telefone'].value == ""){
+      alert("Telefone não pode ficar vazio");
+
+    }else if(this.formulario.controls['empresa'].value == ""){
+      alert("O campo Empresa não pode ficar vazio");
+    }else if(this.formulario.controls['setor'].value == ""){
+      alert("O Campo setor não pode ficar vazio");
+
+    }else if(this.formulario.controls['id_cargo'].value == ""){
+      alert("O campo cargo não pode ficar vazio");
+    }else{
+      this.apiService.editarColaborador(info,this.idcolaborador)
+      .subscribe((data:any)=>{    
+       alert("Colaborador Atualizado com sucesso");
+       this.router.navigate(['/colaborador']);	
+      })
+       
     
-    this.apiService.editarColaborador(info,this.idcolaborador)
-    .subscribe((data:any)=>{    
-     alert("Colaborador Atualizado com sucesso");
-    })
+    }
+    
+   
    
   }
 

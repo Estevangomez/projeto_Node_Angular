@@ -1,3 +1,4 @@
+import { GraficoModule } from './grafico/grafico.module';
 import { FormEditarColaboradorModule } from './form-editar-colaborador/form-editar-colaborador.module';
 import { FormCadastrarColaboradorModule } from './form-cadastrar-colaborador/form-cadastrar-colaborador.module';
 import { CargoService } from './providers/cargo.service';
@@ -12,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ChartsModule } from 'ng2-charts';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -32,7 +34,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormCadastrarColaboradorModule,
     ReactiveFormsModule,
     FormEditarColaboradorModule,
-    FormsModule
+    FormsModule,
+    GraficoModule,
+    ChartsModule
   ],
   providers: [
     ApiService,

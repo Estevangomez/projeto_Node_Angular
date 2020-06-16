@@ -4,45 +4,45 @@
     <div class="card-header">
           Editar Colaborador
     </div>
-    <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" >
-        <input type="hidden" class="form-control" id="idcolaborador" name="idcolaborador" ngModel value="colaborador.codigo">   
+    <form [formGroup]="formulario" #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" >
+        <input type="hidden" class="form-control" id="idcolaborador" formControlName="idcolaborador" ngModel value="{{idcolaborador}}">   
       <div class="form-group">
         <label for="nome">Nome do Colaborador</label>
-        <input type="text" class="form-control" id="nome" name="nome" ngModel value="{{nome}}">   
+        <input type="text" class="form-control" id="nome" formControlName="nome" ngModel value="{{nome}}">   
       </div>
     
       <div class="form-group">
       <label for="email">Email:</label><br>
-        <input type="text" class="form-control" id="email" name="email" ngModel  value="{{email}}">
+        <input type="text" class="form-control" id="email" formControlName="email" ngModel  value="{{email}}">
       </div>
     
         
       <div class="form-group">
       <label for="telefone">Telefone:</label><br>
-        <input type="text" class="form-control" id="telefone" name="telefone" ngModel  value="{{telefone}}">
+        <input type="text" class="form-control" id="telefone" formControlName="telefone" ngModel  value="{{telefone}}">
       </div>
     
         
       <div class="form-group">
       <label for="empresa">Empresa:</label><br>
-        <input type="text" class="form-control" id="empresa" name="empresa" ngModel  value="{{empresa}}">
+        <input type="text" class="form-control" id="empresa" formControlName="empresa" ngModel  value="{{empresa}}">
       </div>
     
         
       <div class="form-group">
       <label for="cargo">Cargo:</label><br>
-      <select id="id_cargo" name="id_cargo" ngModel class="custom-select"  value="{{id_cargo}}">
-              <option value="1">Programador</option>
-              <option value="2">Analista</option>
+      <select id="id_cargo" formControlName="id_cargo" ngModel class="custom-select"  value="{{id_cargo}}">
+        <option value="">Selecione um Cargo</option>
+        <option *ngFor="let cargo of cargos" [value]='cargo.id_cargo'>{{cargo.descricao }} </option>;
           </select><br>
       </div>
         
       <div class="form-group">
       <label for="email">Setor:</label><br>
-        <input type="text" class="form-control" id="setor" name="setor" ngModel value="{{setor}}">
+        <input type="text" class="form-control" id="setor" formControlName="setor" ngModel value="{{setor}}">
       </div>
     
-      <button type="submit" class="btn btn-outline-success"  value="salvar" id="salvar">salvar</button>
+      <button type="submit" class="btn btn-outline-success"  value="salvar" id="salvar">salvar</button>&nbsp;&nbsp;
       <button type="button" class="btn btn-outline-warning"  onclick="window.history.go(-1); return false;"  type="submit" value="voltar">Voltar</button>
     </form>
   </div>

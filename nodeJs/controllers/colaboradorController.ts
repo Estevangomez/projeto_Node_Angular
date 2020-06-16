@@ -18,6 +18,7 @@ class ColaboradorController{
     async getById(req: Request, res:Response){
         
         const _id = req.params.id;
+               
         await ColaboradorService.findById(_id)
         .then(colaborador => Helper.sendResponse(res, HttpStatus.OK, colaborador))
         .catch(error => Helper.sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, error));
@@ -55,6 +56,13 @@ class ColaboradorController{
     async createNewCargo(req: Request, res:Response){
               
         await ColaboradorService.inserirNewCargo(req.body)
+        .then(cargo => Helper.sendResponse(res, HttpStatus.OK, cargo))
+        .catch(error => Helper.sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, error));
+    }
+
+    async getBeanCargo(req: Request, res:Response){
+        const _id = req.params.id;
+        await ColaboradorService.getBeanCargo(_id)
         .then(cargo => Helper.sendResponse(res, HttpStatus.OK, cargo))
         .catch(error => Helper.sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, error));
     }

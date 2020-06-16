@@ -16,7 +16,7 @@ class ColaboradorService{
                 if(err){ return console.log(err); }
             } );
 
-            this.conn.digiboard.query('SELECT * FROM colaborador', (error, results) =>{
+            this.conn.digiboard.query('SELECT * FROM colaborador INNER JOIN cargo on colaborador.id_cargo = cargo.id_cargo', (error, results) =>{
 
                 if(error){
                     rejects({
@@ -70,7 +70,7 @@ class ColaboradorService{
     }
 
     findById(_id){
-        console.log("==========",_id);
+      
         
         return new Promise( (resolve, rejects) => {
 
@@ -181,6 +181,36 @@ class ColaboradorService{
             const query = `INSERT INTO cargo (descricao) VALUES(?)`;
             const data = [                
                 req.descricao
+                
+            ];           
+            
+            this.conn.digiboard.query(query,data, (error, results) => {
+
+                if(error){
+                    console.log('error', error);
+                    
+                    rejects({
+                            error,
+                            msg: ['Houve um problema ao inserir Colaborador']
+                        })
+                    return
+                }
+               
+                resolve(results);
+
+            });
+
+        });
+ 
+    }
+
+    getBeanCargo(idcargo){
+
+        return new Promise((resolve, rejects)=>{
+
+            const query = `SELECT * FROM  cargo WHERE codigo = ?`;
+            const data = [                
+               idcargo
                 
             ];           
             

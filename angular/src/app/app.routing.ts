@@ -1,3 +1,4 @@
+import { GraficoComponent } from './grafico/grafico.component';
 import { FormCadastrarColaboradorComponent } from './form-cadastrar-colaborador/form-cadastrar-colaborador.component';
 import { ModuleWithProviders } from '@angular/core';
 import { ColaboradorComponent } from './colaborador/colaborador.component';
@@ -10,6 +11,7 @@ const APP_ROUTES: Routes = [
     {path:'colaborador/inserir',component:FormCadastrarColaboradorComponent},
     {path:'colaborador/editar',component:FormEditarColaboradorComponent},
     {path:'cargo/inserir',component:CargoComponent},
+    {path:'grafico',component:GraficoComponent},
 
 ];
 

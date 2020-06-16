@@ -40,7 +40,7 @@ export class ApiService {
     }  
 
     getBeanColaborador(idcolaborador) {     
-        
+           
         this.url = this.endPoint.getEndPoint();
         return this.http.get(this.url + "colaborador/"+idcolaborador);
 

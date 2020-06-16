@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../providers/colaborador.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-cargo',
@@ -12,7 +13,7 @@ import { FormBuilder } from '@angular/forms';
 export class CargoComponent implements OnInit {
 
   formulario:any = FormGroup;
-  constructor(private FormBuilder:FormBuilder,private http:HttpClient, private apiService:ApiService, private cargoService:CargoService) { }
+  constructor( private router: Router,private FormBuilder:FormBuilder,private http:HttpClient, private apiService:ApiService, private cargoService:CargoService) { }
 
   ngOnInit(): void {
     this.formulario = this.FormBuilder.group({
@@ -26,13 +27,16 @@ export class CargoComponent implements OnInit {
   }
 
   onSubmit(data){
-    console.warn(data);
-        
+   if(confirm("Confirma cadastro de novo Cargo ? ")){
     this.cargoService.createNovoCargo(data)
     .subscribe((data:any)=>{
     
-      console.warn(data);
+     alert("Cargo Cadastrado com sucesso");
+     this.router.navigate(['/colaborador']);
     })
+   
+   }
+   
    
   }
 

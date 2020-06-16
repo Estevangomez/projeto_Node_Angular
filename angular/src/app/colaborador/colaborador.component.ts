@@ -24,7 +24,9 @@ export class ColaboradorComponent implements OnInit {
   ngOnInit(): void {
     this.ApiService.getAllColaborador()
     .subscribe((data:any)=>{
-     this.colaboradores = data.result;   
+     this.colaboradores = data.result; 
+     console.log(this.colaboradores);
+       
            
     })
 
@@ -46,13 +48,20 @@ export class ColaboradorComponent implements OnInit {
    if (confirm("Confirma Excluir Colaborador ?")){
       this.ApiService.removerColaborador(idcolaborador)
     .subscribe((data:any)=>{
-     
-      console.warn(data);
+      location.reload();
     })
-    this.router.navigate(['/colaborador']);	
-    }
-     
+   	
+    }    
 
+  }
+
+  graficoMostrar(){
+    this.router.navigate(['/grafico']);
+  }
+
+  getBeanCargo(idcargo){
+    console.log("aqui");
+    
   }
 
   getBeanColaborador(idcolaborador){  
