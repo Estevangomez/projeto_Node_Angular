@@ -30,8 +30,58 @@ class ColaboradorService{
 
             });
 
-        });
- 
+        }); 
+    }
+
+    qtdColaborador(){
+
+        return new Promise((resolve, rejects)=>{
+
+            this.conn.digiboard.connect( (err) => {
+                if(err){ return console.log(err); }
+            } );
+
+            this.conn.digiboard.query('SELECT COUNT(*) as totalColaboradores FROM colaborador', (error, results) =>{
+
+                if(error){
+                    rejects({
+                            error,
+                            msg: 'Houve um problema ao listar colaboradores'
+                        })
+                    return
+                }
+
+                resolve(results);
+
+            });
+
+        }); 
+    }
+
+    qtdColaboradorByCargo(_id){
+        console.log("===",_id);
+        
+        return new Promise((resolve, rejects)=>{
+
+            this.conn.digiboard.connect( (err) => {
+                if(err){ return console.log(err); }
+            } );
+
+            this.conn.digiboard.query('SELECT COUNT(*) AS cargo FROM colaborador WHERE id_cargo = ?',[_id], (error, results) =>{
+
+                if(error){
+                    rejects({
+                            error,
+                            msg: 'Houve um problema ao listar colaboradores'
+                        })
+                    return
+                }
+
+                resolve(results);
+
+            });
+
+        }); 
     }
 
     inserir(req){

@@ -45,6 +45,21 @@ class ColaboradorController{
         .then(colaborador => Helper.sendResponse(res, HttpStatus.OK, colaborador))
         .catch(error => Helper.sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, error));
     }
+
+    async qtdColaborador(req: Request, res:Response){
+        
+        await ColaboradorService.qtdColaborador()
+        .then(colaborador => Helper.sendResponse(res, HttpStatus.OK, colaborador))
+        .catch(error => Helper.sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, error));
+    }
+
+    async qtdColaboradorByCargo(req: Request, res:Response){
+        const _id = req.params.idcargo;
+        await ColaboradorService.qtdColaboradorByCargo(_id)
+        .then(colaborador => Helper.sendResponse(res, HttpStatus.OK, colaborador))
+        .catch(error => Helper.sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, error));
+    }
+
 /*******************************CARGO********************************************** */
     async getAllCargo(req: Request, res:Response){
        

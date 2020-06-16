@@ -39,6 +39,18 @@ export class ApiService {
 
     }  
 
+    getTotalColaboradores() {
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url + "colaborador/total");
+
+    }  
+
+    getQtdColaboradorByCargo(idcargo) {
+        this.url = this.endPoint.getEndPoint();
+        return this.http.get(this.url + "colaborador/totalByCargo/"+idcargo);
+
+    } 
+
     getBeanColaborador(idcolaborador) {     
            
         this.url = this.endPoint.getEndPoint();
